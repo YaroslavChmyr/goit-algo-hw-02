@@ -17,9 +17,13 @@ def process_request():
         print("Черга порожня. Немає заявок для обробки.")
 
 while True:
-    generate_request()
-    time.sleep(random.uniform(0.5, 2.0))
-    process_request()
+    requests_amount = random.randint(1, 10)
+    for _ in range(requests_amount):
+        generate_request()
+        time.sleep(random.uniform(0.5, 1.0))
+    for _ in range(requests_amount):
+        process_request()
+        time.sleep(random.uniform(0.5, 1.0))
     user_input = input("Натисніть Enter, щоб продовжити, або 'q' та Enter, щоб вийти: ")
     if user_input.strip().lower() == 'q':
         print("Гарного дня!")
